@@ -1,0 +1,37 @@
+-- 5. Output the top 3 actors who have appeared the most in movies in the “Children” category. If several actors have the same number of movies, output all of them.
+
+WITH
+	ACTOR_COUNT AS (
+		SELECT
+			ACTOR.ACTOR_ID,
+			ACTOR.FIRST_NAME,
+			ACTOR.LAST_NAME,
+			COUNT(FILM.FILM_ID) AS FILM_COUNT
+		FROM
+			ACTOR
+			JOIN FILM_ACTOR ON ACTOR.ACTOR_ID = FILM_ACTOR.ACTOR_ID
+			JOIN FILM ON FILM_ACTOR.FILM_ID = FILM.FILM_ID
+			JOIN FILM_CATEGORY ON FILM.FILM_ID = FILM_CATEGORY.FILM_ID
+			JOIN CATEGORY ON FILM_CATEGORY.CATEGORY_ID = CATEGORY.CATEGORY_ID
+		WHERE
+			CATEGORY.NAME = 'Children'
+		GROUP BY
+			ACTOR.ACTOR_ID,
+			ACTOR.FIRST_NAME,
+			ACTOR.LAST_NAME
+	)
+SELECT
+	*
+FROM
+	(
+		SELECT
+			*,
+			DENSE_RANK() OVER (
+				ORDER BY
+					FILM_COUNT DESC
+			) AS DENSE_RNK
+		FROM
+			ACTOR_COUNT
+	)
+WHERE
+	DENSE_RNK <= 3
