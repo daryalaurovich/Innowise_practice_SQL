@@ -1,4 +1,4 @@
--- Output the 10 actors whose movies rented the most, sorted in descending order.
+-- 2. Output the 10 actors whose movies rented the most, sorted in descending order.
 
 SELECT
 	ACTOR.ACTOR_ID,
@@ -16,4 +16,4 @@ GROUP BY
 ORDER BY
 	COUNT_RENTAL DESC
 LIMIT
-	10
+	10;

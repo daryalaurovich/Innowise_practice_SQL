@@ -1,4 +1,4 @@
--- Output the category of movies on which the most money was spent.
+-- 3. Output the category of movies on which the most money was spent.
 
 SELECT
 	CATEGORY.CATEGORY_ID,
@@ -17,4 +17,4 @@ GROUP BY
 ORDER BY
 	CATEGORY_REVENUE DESC
 LIMIT
-	1
+	1;

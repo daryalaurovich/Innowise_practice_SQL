@@ -1,4 +1,4 @@
--- Output the number of movies in each category, sorted descending.
+-- 1. Output the number of movies in each category, sorted descending.
 
 SELECT
 	CATEGORY.NAME,
@@ -10,4 +10,4 @@ FROM
 GROUP BY
 	CATEGORY.NAME
 ORDER BY
-	2 DESC
+	2 DESC;
