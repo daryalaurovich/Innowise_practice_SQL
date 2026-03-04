@@ -1,4 +1,5 @@
--- 1. Number of movies in each category, sorted descending
+-- Output the number of movies in each category, sorted descending.
+
 SELECT
 	CATEGORY.NAME,
 	COUNT(FILM.FILM_ID) AS FILM_COUNT
@@ -10,4 +11,3 @@ GROUP BY
 	CATEGORY.NAME
 ORDER BY
 	2 DESC
-	

@@ -1,3 +1,5 @@
+-- Output the 10 actors whose movies rented the most, sorted in descending order.
+
 SELECT
 	ACTOR.ACTOR_ID,
 	ACTOR.FIRST_NAME,
