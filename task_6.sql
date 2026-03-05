@@ -1,3 +1,5 @@
+-- Output cities with the number of active and inactive customers (active - customer.active = 1). Sort by the number of inactive customers in descending order.
+
 SELECT
 	CITY.CITY_ID,
 	CITY.CITY,
